@@ -31,7 +31,7 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
-          build_dir: dist
+          build_dir: public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -43,7 +43,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO --delete"
           # 源目录，编译后生成的文件目录
-          SOURCE: dist
+          SOURCE: public
           # 服务器ip：换成你的服务器IP
           REMOTE_HOST: ${{ secrets.SERVER_IP }}
           # 用户
