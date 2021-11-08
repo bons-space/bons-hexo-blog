@@ -1,12 +1,10 @@
 name: main
 
-# 触发条件：push到master分支后
+# 触发条件：push到main分支后
 on:
   push:
     branches:
       - main
-    # paths:
-    #   - src/*
 
 # 任务
 jobs:
