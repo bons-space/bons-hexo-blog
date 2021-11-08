@@ -4,7 +4,7 @@ date: 2021-5-16 00:00:00
 cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
 description: JavaScript工具函数，持续更新。
 keywords: JavaScript, function, tools
-tags: JavaScript工具函数
+tags: JS工具函
 categories: 
  - Javascript
 ---

@@ -4,7 +4,7 @@ date: 2021-5-17 00:00:00
 cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
 description: JavaScript的eval函数笔记
 keywords: JavaScript, function, eval
-tags: 面经
+tags: Js笔记
 categories: 
  - Javascript
 ---

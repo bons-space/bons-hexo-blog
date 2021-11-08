@@ -4,7 +4,7 @@ date: 2021-10-9 10:54:58
 cover: https://img.showydream.com/img/rgz1H3-bryony-elena-ByraPj141bo-unsplash.jpg
 description: Nuxt踩坑、优化笔记
 keywords: Vue，Nuxt，面试题
-tags: 面经
+tags: Nuxt
 categories: 
   - Nuxt
 ---

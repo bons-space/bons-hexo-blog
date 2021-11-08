@@ -4,7 +4,7 @@ date: 2019-12-06 12:00:00
 cover: https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
 description: CSS笔记
 keywords: CSS
-tags: 面经
+tags: CSS
 categories:
   - CSS
 ---

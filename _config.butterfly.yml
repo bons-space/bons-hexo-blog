@@ -657,7 +657,7 @@ busuanzi:
 # Formal: Month/Day/Year Time or Year/Month/Day Time
 runtimeshow:
   enable: true
-  publish_date: 6/7/2019 00:00:00
+  publish_date: 6/7/2020 00:00:00
 
 # Aside widget - Newest Comments
 newest_comments:
@@ -784,9 +784,9 @@ pangu:
 # Lazyload (圖片懶加載)
 # https://github.com/verlok/vanilla-lazyload
 lazyload:
-  enable: false
+  enable: true
   field: site # site/post
-  placeholder:
+  placeholder: https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif
   blur: false
 
 # PWA

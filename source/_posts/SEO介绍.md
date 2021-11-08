@@ -6,7 +6,7 @@ description: SEO。
 keywords: SEO介绍
 tags: SEO
 categories: 
-  - 前端知识点
+  - 前端
 ---
 
 
