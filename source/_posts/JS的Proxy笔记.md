@@ -4,6 +4,7 @@ date: 2021-4-23 12:00:00
 cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
 description: 了解一下Proxy
 keywords: Proxy
+tags: JS的Proxy笔记
 categories: 
  - Javascript
 ---

@@ -4,6 +4,7 @@ date: 2021-4-6 12:00:00
 cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
 description: 介绍一下JS的垃圾回收机制。
 keywords: JS的垃圾回收机制
+tags: 面经
 categories: 
   - JavaScript
 ---

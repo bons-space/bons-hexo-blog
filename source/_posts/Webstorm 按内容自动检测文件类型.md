@@ -4,6 +4,7 @@ date: 2021-08-3 10:54:58
 cover: https://img.showydream.com/img/6kWop6-iShot2021-08-03%2014.31.23.png
 description: Webstorm 按内容自动检测文件类型
 keywords: Webstorm 按内容自动检测文件类型
+tags: WebStorm技巧
 categories: 
   - WebStorm
 ---

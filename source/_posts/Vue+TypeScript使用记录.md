@@ -4,6 +4,7 @@ date: 2020-12-17 12:43:34
 cover: https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
 description: 最近参与开发了一个新项目，想着新项目就用用自己不熟悉的技术，一边学习一边进步，于是把目光瞄向了TypeScript。
 keywords: Vue2，TS
+tags: TS笔记
 categories:
   - Vue
 ---

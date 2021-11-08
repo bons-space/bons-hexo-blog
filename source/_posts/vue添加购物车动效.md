@@ -4,6 +4,7 @@ date: 2021-4-13 17:54:58
 cover: https://img.showydream.com/img/NSxdnY-post-image2.jpg
 description: 用vue实现添加购物车特效。
 keywords: vue实现添加购物车特效
+tags: Vue技巧
 categories: 
   - Vue
 ---

@@ -4,8 +4,9 @@ date: 2021-8-17 12:00:00
 cover: https://img.showydream.com/img/OtxkRZ-how-to-build-a-rest-api-with-golang-using-gin-and-gorm.png
 description: gin中文文档
 keywords: gin中文文档,go
+tags: gin中文文档
 categories:
-  - go
+  - GO
 ---
 
 

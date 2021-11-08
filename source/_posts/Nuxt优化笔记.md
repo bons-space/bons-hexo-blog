@@ -3,9 +3,10 @@ title: Nuxt优化笔记
 date: 2021-10-9 10:54:58
 cover: https://img.showydream.com/img/rgz1H3-bryony-elena-ByraPj141bo-unsplash.jpg
 description: Nuxt踩坑、优化笔记
-keywords: Vue，Nuxt，面试题，
+keywords: Vue，Nuxt，面试题
+tags: 面经
 categories: 
-  - nuxt
+  - Nuxt
 ---
 
 
@@ -14,7 +15,7 @@ categories:
 
 Nuxt 是支持 Vue SSR 的一个框架，底层需要运行 Node 服务。大概描述一下 Vue 的渲染过程，首先每个组件都会被编译生成一个渲染函数（这部分基本 webpack 打包已经做掉），然后渲染函数生成虚拟 dom，最后虚拟 dom 通过 patch 方法将真实 dom 渲染到页面上。Nuxt 其实就是将这部分放到了服务端去做，在服务端拿到渲染页面所需要的 html，从而使得 html 能够直出，`而客户端其实还是会运行整个 Vue 的生命周期`，这就带来了一个问题，`这部分操作放在了服务端其实是非常耗 cpu 的`，创建组件实例和虚拟 DOM 节点的开销，无法与纯基于字符串拼接的模版的性能相当，如果是不加优化的 Nuxt 项目，高并发下是很脆弱的，毕竟 Node 运行在单线程下，不适合 cpu 操作密集型的场景
 
-使用 Nuxt 的项目无非看中了它的两大优点，一是服务端渲染满足 SEO 的需求，二是首屏直出比 SPA 快，再加上如果如果公司是 Vue 系，使用 Nuxt 就更顺理成章。但是不要忘了性能，高并发下 Nuxt 性能确实不乐观，我测试了官网的 hackernews demo 项目，2 核 cpu + 4g 内存，400 并发下它的吞吐量不超过 50，就算是最简的 Nuxt 项目，吞吐量也就 300+，这就说明如果项目不做缓存，300+ 已经是最大的吞吐量了，而最小 express demo 可以轻松到 3000，这就决定了高流量项目并不会轻易去使用 Nuxt
+使用 Nuxt 的项目无非看中了它的两大优点，一是服务端渲染满足 SEO 的需求，二是首屏直出比 SPA 快，再加上如果如果公司是 Vue 系，使用 Nuxt 就更顺理成章。但是不要忘了性能，高并发下 Nuxt 性能确实不乐观，我测试了官网的 hackernews demo 项目，2 核 cpu + 4g 内存，400 并发下它的吞吐量不超过 50，就算是最简的 Nuxt 项目，吞吐量也就 300+，这就说明如果项目不做缓存，300+ 已经是最大的吞吐量了，而最小 express demo 可以轻松到 3000，这就决定了**高流量项目并不会轻易去使用 Nuxt**
 
 ## 优化方向
 

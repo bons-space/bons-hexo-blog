@@ -4,8 +4,9 @@ date: 2020-09-21 16:22:15
 cover: https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
 description: SEO。
 keywords: SEO介绍
+tags: SEO
 categories: 
-  - SEO
+  - 前端知识点
 ---
 
 
