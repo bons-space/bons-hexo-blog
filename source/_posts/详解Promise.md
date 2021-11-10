@@ -1,12 +1,13 @@
 ---
 title: 详解Promise
-date: 2021-01-29 15:43:08
-cover: https://img.showydream.com/img/VFqazk-post-image1.jpg
+cover: 'https://img.showydream.com/img/VFqazk-post-image1.jpg'
 description: 本文介绍一下Promise
 keywords: Promise
 tags: 面经
-categories: 
-  - Javascript
+categories:
+  - JavaScript
+abbrlink: a1abb679
+date: 2021-01-29 15:43:08
 ---
 
 

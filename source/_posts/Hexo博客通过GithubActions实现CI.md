@@ -1,12 +1,13 @@
 ---
 title: Hexo博客通过Github Actions实现CI
-date: 2021-11-08 19:00:49
-cover: https://img.showydream.com/img/bnNPUN-k-mitch-hodge-wE7T6f1GlxA-unsplash.jpg
+cover: 'https://img.showydream.com/img/bnNPUN-k-mitch-hodge-wE7T6f1GlxA-unsplash.jpg'
 description: Hexo博客通过github Actions实现CI
-keywords: Hexo, GitHub Actions
+keywords: 'Hexo, GitHub Actions'
 tags: Hexo
 categories:
   - Hexo
+abbrlink: 9c33342a
+date: 2021-11-08 19:00:49
 ---
 
 通过Hexo搭建的个人博客，虽然很强大、很方便，输入命令就可以快速生成静态页面并部署访问，但是还有让它更好用的优化空间，比如直接把打包部署环境放到`Github Actions`上面，我个人就是用这种形式部署博客的。下面来介绍一下。

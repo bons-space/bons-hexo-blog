@@ -1,12 +1,13 @@
 ---
 title: JS的Proxy笔记
-date: 2021-4-23 12:00:00
-cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
+cover: 'https://img.showydream.com/img/ZrtTjb-javascript.jpg'
 description: 了解一下Proxy
 keywords: Proxy
 tags: Js笔记
-categories: 
- - Javascript
+categories:
+  - JavaScript
+abbrlink: 513fa733
+date: 2021-04-23 12:00:00
 ---
 
 ## 概述

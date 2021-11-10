@@ -1,12 +1,14 @@
 ---
 title: HTML标签语义化
-date: 2020-09-21 15:42:54
-cover: https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
+cover: >-
+  https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
 description: HTML标签语义化
 keywords: HTML标签语义化
 tags: 标签语义化
-categories: 
-  - HTML
+categories:
+  - 前端
+abbrlink: 19ca0e55
+date: 2020-09-21 15:42:54
 ---
 
 

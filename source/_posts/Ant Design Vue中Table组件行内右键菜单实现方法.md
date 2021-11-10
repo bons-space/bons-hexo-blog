@@ -1,12 +1,13 @@
 ---
 title: Ant Design Vue中Table组件行内右键菜单实现方法
-date: 2021-08-04 19:00:00
-cover: https://img.showydream.com/img/nvpJTu-ant-design-vue.jpeg
+cover: 'https://img.showydream.com/img/nvpJTu-ant-design-vue.jpeg'
 description: Ant Design Vue中Table组件行内右键菜单实现方法
-keywords: vue,Ant Design
+keywords: 'vue,Ant Design'
 tags: Vue技巧
-categories: 
- - Vue
+categories:
+  - Vue
+abbrlink: f777fe0e
+date: 2021-08-04 19:00:00
 ---
 
 思路就是把右键菜单放到一个全局隐藏的地方，监听`<a-table>`的行的响应事件，动态控制右键菜单的位置和展示。

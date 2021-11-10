@@ -1,12 +1,16 @@
 ---
 title: 前端BFC
-date: 2021-4-2 12:00:00
-cover: https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
-description: BFC（Block formatting context）直译为“块级格式化上下文”。它是一个独立的渲染区域，只有Block-level box参与，它规定了内部的Block-level box如何布局，并且与这个区域外部毫不相干。
+cover: >-
+  https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
+description: >-
+  BFC（Block formatting context）直译为“块级格式化上下文”。它是一个独立的渲染区域，只有Block-level
+  box参与，它规定了内部的Block-level box如何布局，并且与这个区域外部毫不相干。
 keywords: BFC
 tags: 面经
-categories: 
-  - 前端知识点
+categories:
+  - 前端
+abbrlink: 104be820
+date: 2021-04-02 12:00:00
 ---
 
 

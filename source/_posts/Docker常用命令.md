@@ -1,12 +1,13 @@
 ---
 title: Docker常用命令
-date: 2021-6-11 00:00:00
-cover: https://img.showydream.com/img/ZhBcmx-iStock-1144628524.jpeg
+cover: 'https://img.showydream.com/img/ZhBcmx-iStock-1144628524.jpeg'
 description: Docker常用命令
 keywords: docker
 tags: Docker
-categories: 
- - Docker
+categories:
+  - Docker
+abbrlink: 29dc6fe8
+date: 2021-06-11 00:00:00
 ---
 
 

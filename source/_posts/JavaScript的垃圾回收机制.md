@@ -1,12 +1,13 @@
 ---
 title: JavaScript之垃圾回收机制
-date: 2021-4-6 12:00:00
-cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
+cover: 'https://img.showydream.com/img/ZrtTjb-javascript.jpg'
 description: 介绍一下JS的垃圾回收机制。
 keywords: JS的垃圾回收机制
 tags: Js笔记
-categories: 
+categories:
   - JavaScript
+abbrlink: 246bb01b
+date: 2021-04-06 12:00:00
 ---
 
 

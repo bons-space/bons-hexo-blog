@@ -1,12 +1,13 @@
 ---
 title: JavaScript工具函数
-date: 2021-5-16 00:00:00
-cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
+cover: 'https://img.showydream.com/img/ZrtTjb-javascript.jpg'
 description: JavaScript工具函数，持续更新。
-keywords: JavaScript, function, tools
-tags: JS工具函
-categories: 
- - Javascript
+keywords: 'JavaScript, function, tools'
+tags: JS工具函数
+categories:
+  - JavaScript
+abbrlink: fb4727c4
+date: 2021-05-16 00:00:00
 ---
 
 

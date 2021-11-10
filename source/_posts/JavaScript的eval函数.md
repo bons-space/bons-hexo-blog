@@ -1,12 +1,13 @@
 ---
 title: JavaScript的eval函数
-date: 2021-5-17 00:00:00
-cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
+cover: 'https://img.showydream.com/img/ZrtTjb-javascript.jpg'
 description: JavaScript的eval函数笔记
-keywords: JavaScript, function, eval
+keywords: 'JavaScript, function, eval'
 tags: Js笔记
-categories: 
- - Javascript
+categories:
+  - JavaScript
+abbrlink: bc26841a
+date: 2021-05-17 00:00:00
 ---
 
 ​		JavaScript中的eval(..)函数可以接受一个字符串为参数，并将其中的内容视为好像在书写时就存在于程序中这个位置的代码。换句话说，可以在你写的代码中用程序生成代码并运行，就好像代码是写在那个位置的一样。

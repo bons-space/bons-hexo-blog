@@ -1,14 +1,15 @@
 ---
 title: Weback使用小技巧
-date: 2021-11-8 12:54:58
-updated: 2021-11-8 17:00:00
-type: "tags"
-cover: https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png
+type: tags
+cover: 'https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png'
 description: Webpack Q&A笔记，持续更新
 keywords: Webpack，技巧，面经
 tags: Webpack
-categories: 
+categories:
   - Webpack
+abbrlink: f39d325f
+date: 2021-11-08 12:54:58
+updated: 2021-11-08 17:00:00
 ---
 
 ### 批量导入文件：require.context

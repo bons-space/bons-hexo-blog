@@ -1,12 +1,13 @@
 ---
 title: JavaScript踩坑之parseInt
-date: 2021-5-6 00:00:00
-cover: https://img.showydream.com/img/ZrtTjb-javascript.jpg
+cover: 'https://img.showydream.com/img/ZrtTjb-javascript.jpg'
 description: 今天在群里看到一个奇怪的问题，parseInt(0.00000005)输出是5，这个一看不会，引发了我的好奇心。
-keywords: parseInt(0.0000005),parseInt,JavaScript,js
+keywords: 'parseInt(0.0000005),parseInt,JavaScript,js'
 tags: Js知识点
-categories: 
- - JavaScript
+categories:
+  - JavaScript
+abbrlink: bd0fbac
+date: 2021-05-06 00:00:00
 ---
 
 

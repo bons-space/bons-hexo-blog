@@ -1,13 +1,14 @@
 ---
 title: webpack中的Loader总结
-date: 2021-11-3 17:54:58
-updated: 2021-11-5 14:00:00
-cover: https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png
+cover: 'https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png'
 description: Webpack Q&A笔记，持续更新
 keywords: Webpack，Loader，面经
 tags: Webpack
-categories: 
+categories:
   - Webpack
+abbrlink: e6ad105
+date: 2021-11-03 17:54:58
+updated: 2021-11-05 14:00:00
 ---
 
 ## Loader介绍

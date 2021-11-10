@@ -1,12 +1,14 @@
 ---
 title: CSS水平垂直居中实现方式
-date: 2019-08-28 09:38:42
-cover: https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
+cover: >-
+  https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
 description: CSS水平垂直居中实现
 keywords: CSS水平垂直居中实现
 tags: CSS
-categories: 
+categories:
   - CSS
+abbrlink: '1e018348'
+date: 2019-08-28 09:38:42
 ---
 
 水平垂直居中包括行内元素居中，以及块级元素居中

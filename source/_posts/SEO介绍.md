@@ -1,12 +1,14 @@
 ---
 title: 关于SEO
-date: 2020-09-21 16:22:15
-cover: https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
+cover: >-
+  https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg
 description: SEO。
 keywords: SEO介绍
 tags: SEO
-categories: 
+categories:
   - 前端
+abbrlink: 435df108
+date: 2020-09-21 16:22:15
 ---
 
 

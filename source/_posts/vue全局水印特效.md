@@ -1,12 +1,13 @@
 ---
 title: vue全局水印特效
-date: 2021-8-12 11:54:58
-cover: https://img.showydream.com/img/NSxdnY-post-image2.jpg
+cover: 'https://img.showydream.com/img/NSxdnY-post-image2.jpg'
 description: vue全局水印特效
 keywords: vue全局水印特效
 tags: Vue技巧
-categories: 
+categories:
   - Vue
+abbrlink: adceea08
+date: 2021-08-12 11:54:58
 ---
 
 代码如下

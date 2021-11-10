@@ -1,12 +1,13 @@
 ---
 title: vue添加购物车动效
-date: 2021-4-13 17:54:58
-cover: https://img.showydream.com/img/NSxdnY-post-image2.jpg
+cover: 'https://img.showydream.com/img/NSxdnY-post-image2.jpg'
 description: 用vue实现添加购物车特效。
 keywords: vue实现添加购物车特效
 tags: Vue技巧
-categories: 
+categories:
   - Vue
+abbrlink: c0360c5a
+date: 2021-04-13 17:54:58
 ---
 
 

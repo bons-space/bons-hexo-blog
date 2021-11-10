@@ -1,12 +1,14 @@
 ---
 title: CSS画图大法
-date: 2021-04-18 09:38:42
-cover: https://img.showydream.com/img/RTpMv6-11c39f7be6854b6b92b0180ec7524baa~tplv-k3u1fbpfcp-watermark.image
+cover: >-
+  https://img.showydream.com/img/RTpMv6-11c39f7be6854b6b92b0180ec7524baa~tplv-k3u1fbpfcp-watermark.image
 description: CSS画几何图形
 tags: CSS
 keywords: CSS画几何图形，CSS画三角形
-categories: 
+categories:
   - CSS
+abbrlink: 43db43e2
+date: 2021-04-18 09:38:42
 ---
 
 
