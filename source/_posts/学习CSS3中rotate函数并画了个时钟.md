@@ -1,5 +1,5 @@
 ---
-title: 学习CSS3中rolate函数并画了个时钟
+title: 学习CSS3中rotate函数并画了个时钟
 cover: >-
   https://img.showydream.com/img/uSzhc3-white-wall-clock-on-blue-background-picture-id1289661784.jpeg
 keywords: 'Vue3,时钟,钟表,CSS'
@@ -185,6 +185,10 @@ The `rotate()` CSS 函数 定义一个旋转属性，将元素在不变形的情
    <img src="https://img.showydream.com/img/IgBA2w-image-20211111115602912.png" alt="image-20211111115602912" style="zoom:50%;" />
 
    这是为啥呢？原因很简单，因为在遍历过程中，每个刻度都有自己的高度，随着高度的累计，每个刻度的旋转的原点不一样了，简单来说就是圆心跟着动了。那么解决方案也就来了，只需要用`position: absolute`让它们的圆心一样就好了。
+   
+   
+   
+# 全部代码
 
 ```html
 <template>
