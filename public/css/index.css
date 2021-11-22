@@ -3750,7 +3750,7 @@ h1.page-title + .tag-cloud-list {
 #nav .site-page {
   position: relative;
   padding-bottom: 6px;
-  font-size: 1em;
+  font-size: 0.8em;
   cursor: pointer;
 }
 #nav .site-page:not(.child):after {
