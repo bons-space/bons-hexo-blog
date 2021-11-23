@@ -2,16 +2,14 @@
 title: 面试问到HTTP就这么回答
 cover: >-
   HTTPs://img.showydream.com/img/SoFF52-ryunosuke-kikuno-hyWy0z4UayE-unsplash.jpg
-description: HTTP相关问答
+description: HTTP和HTTPs的区别是什么？为什么HTTPS比HTTP安全?什么是强缓存和协商缓存？常见的HTTP状态码有哪些，都代表了什么含义？
 tags: 面经
-keywords: HTTP，HTTPS，面试题，
+keywords: HTTP和HTTPs的区别是什么？为什么HTTPS比HTTP安全?什么是强缓存和协商缓存？常见的HTTP状态码有哪些，都代表了什么含义？
 categories:
   - 前端
 abbrlink: dc44fbe2
 date: 2021-11-12 19:53:53
 ---
-
-HTTP 协议是互联网的基础协议，也是网页开发的必备知识，最新版本 HTTP/2 更是让它成为技术热点。
 
 ## HTTP和HTTPs的区别
 
@@ -138,7 +136,7 @@ If-Modified-Since：
 > - Etag优先级是高于Last-Modifed的，所以服务器会优先验证Etag
 > - Last-Modifed/If-Modified-Since是http1.0的头字段
 
-## 常见的HTTP状态码都代表了什么含义
+## 常见的HTTP状态码有哪些，都代表了什么含义？
 
 ### 2XX(Success 成功状态码)
 
