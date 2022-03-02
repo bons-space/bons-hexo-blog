@@ -148,3 +148,10 @@ export default defineComponent({
 
 ### vite中elemtntPlus设置语言由于不能用commonjs语法，需要在项目中自己定义一份语言包，直接抄elementPlus中的即可
 
+### 报错
+
+<img src="https://img.showydream.com/img/v4iaJN-image-20220107152700608.png" alt="image-20220107152700608" style="zoom:50%;" />
+
+解决：把配置文件的base改为'/'
+
+<img src="https://img.showydream.com/img/mWkj61-image-20220107153836723.png" alt="image-20220107153836723" style="zoom:50%;" />

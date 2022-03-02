@@ -105,4 +105,6 @@ dist
 
 package-lock.json
 
-/public/
+public/
+
+public/*
