@@ -1,0 +1,285 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>面试问到HTTP就这么回答 | 远方的Blog</title><meta name="keywords" content="HTTP和HTTPs的区别是什么？为什么HTTPS比HTTP安全?什么是强缓存和协商缓存？常见的HTTP状态码有哪些，都代表了什么含义？"><meta name="author" content="远方"><meta name="copyright" content="远方"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="HTTP和HTTPs的区别是什么？为什么HTTPS比HTTP安全?什么是强缓存和协商缓存？常见的HTTP状态码有哪些，都代表了什么含义？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试问到HTTP就这么回答">
+<meta property="og:url" content="https://showydream.com/p/dc44fbe2.html">
+<meta property="og:site_name" content="远方的Blog">
+<meta property="og:description" content="HTTP和HTTPs的区别是什么？为什么HTTPS比HTTP安全?什么是强缓存和协商缓存？常见的HTTP状态码有哪些，都代表了什么含义？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="HTTPs://img.showydream.com/img/SoFF52-ryunosuke-kikuno-hyWy0z4UayE-unsplash.jpg">
+<meta property="article:published_time" content="2021-11-12T19:53:53.000Z">
+<meta property="article:modified_time" content="2023-03-27T07:01:06.387Z">
+<meta property="article:author" content="远方">
+<meta property="article:tag" content="面经">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="HTTPs://img.showydream.com/img/SoFF52-ryunosuke-kikuno-hyWy0z4UayE-unsplash.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://showydream.com/p/dc44fbe2"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面试问到HTTP就这么回答',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-03-27 07:01:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/HaBjml-IMG_2383.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('HTTPs://img.showydream.com/img/SoFF52-ryunosuke-kikuno-hyWy0z4UayE-unsplash.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">远方的Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">面试问到HTTP就这么回答</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-12T19:53:53.000Z" title="发表于 2021-11-12 19:53:53">2021-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-03-27T07:01:06.387Z" title="更新于 2023-03-27 07:01:06">2023-03-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="HTTP和HTTPs的区别"><a href="#HTTP和HTTPs的区别" class="headerlink" title="HTTP和HTTPs的区别"></a>HTTP和HTTPs的区别</h2><ul>
+<li>HTTP 是明文传输协议，HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。</li>
+</ul>
+<p>​        <img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://image.fundebug.com/2019-0424-00010.png" alt="img"  /></p>
+<ul>
+<li>HTTPS比HTTP更加安全，对搜索引擎更友好，利于SEO，谷歌、百度优先索引HTTPS网页;</li>
+<li>HTTPS需要用到SSL证书，而HTTP不用;</li>
+<li>HTTPS标准端口443，HTTP标准端口80;</li>
+<li>HTTPS基于传输层，HTTP基于应用层;</li>
+<li>HTTPS在浏览器显示绿色安全锁，HTTP没有显示;</li>
+</ul>
+<h2 id="为什么HTTPS比HTTP安全"><a href="#为什么HTTPS比HTTP安全" class="headerlink" title="为什么HTTPS比HTTP安全?"></a>为什么HTTPS比HTTP安全?</h2><h3 id="HTTP的问题"><a href="#HTTP的问题" class="headerlink" title="HTTP的问题"></a>HTTP的问题</h3><p>HTTP是明文协议，它有以下缺点：</p>
+<ul>
+<li>通信使用明文（不加密），内容可能被窃听</li>
+<li>无法证明报文的完整性，所以可能遭篡改</li>
+<li>不验证通信方的身份，因此有可能遭遇伪装</li>
+</ul>
+<p>HTTP明文协议的缺陷是导致数据泄露、数据篡改、流量劫持、钓鱼攻击等安全问题的重要原因。</p>
+<h3 id="HTTPS如何解决HTTP上述问题？"><a href="#HTTPS如何解决HTTP上述问题？" class="headerlink" title="HTTPS如何解决HTTP上述问题？"></a>HTTPS如何解决HTTP上述问题？</h3><p>HTTPS并非是应用层的一种新协议。只是HTTP通信接口部分用SSL（Secure Socket Layer）和TLS（Transport Layer Security）协议代替而已。通常，HTTP直接和TCP通信。当使用SSL时，则演变成先和SSL通信，再由SSL和TCP通信了。简言之，<strong>所谓HTTPS，其实就是身披SSL协议这层外壳的HTTP</strong>。</p>
+<p>HTTPS 协议的主要功能基本都依赖于 TLS/SSL 协议，TLS/SSL 的功能实现主要依赖于三类基本算法：散列函数 、对称加密和非对称加密，<strong>其利用非对称加密实现身份认证和密钥协商，对称加密算法采用协商的密钥对数据加密，基于散列函数验证信息的完整性</strong>。</p>
+<p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/FDDoZq-2019-0424-0004.png" alt="img"></p>
+<h4 id="使用加密解决内容可能被窃听的问题"><a href="#使用加密解决内容可能被窃听的问题" class="headerlink" title="使用加密解决内容可能被窃听的问题"></a>使用加密解决内容可能被窃听的问题</h4><p>具体做法是：<strong>发送密文的一方使用对方的公钥进行加密处理“对称的密钥”，然后对方用自己的私钥解密拿到“对称的密钥”，这样可以确保交换的密钥是安全的前提下，使用对称加密方式进行通信</strong>。所以，HTTPS采用对称加密和非对称加密两者并用的混合加密机制。</p>
+<h4 id="使用数字签名解决报文可能遭到篡改的问题"><a href="#使用数字签名解决报文可能遭到篡改的问题" class="headerlink" title="使用数字签名解决报文可能遭到篡改的问题"></a>使用数字签名解决报文可能遭到篡改的问题</h4><p>网络传输过程中需要经过很多中间节点，虽然数据无法被解密，但可能被篡改，那如何校验数据的完整性呢？—-校验数字签名。</p>
+<p><strong>数字签名有两种功效</strong>：</p>
+<ul>
+<li>能确定消息确实是由发送方签名并发出来的，因为别人假冒不了发送方的签名。</li>
+<li>数字签名能确定消息的完整性，证明数据是否未被篡改过。</li>
+</ul>
+<p><strong>数字签名如何生成:</strong></p>
+<p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/pnTh5y-2019-0424-0006.png" alt="img"></p>
+<p>将一段文本先用Hash函数生成消息摘要，然后用发送者的私钥加密生成数字签名，与原文文一起传送给接收者。接下来就是接收者校验数字签名的流程了。</p>
+<p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/7Y4uzP-2019-0424-0007.png" alt="img"></p>
+<p>接收者只有用发送者的公钥才能解密被加密的摘要信息，然后用HASH函数对收到的原文产生一个摘要信息，与上一步得到的摘要信息对比。如果相同，则说明收到的信息是完整的，在传输过程中没有被修改，否则说明信息被修改过，因此数字签名能够验证信息的完整性。</p>
+<h4 id="使用数字证书解决通信方身份可能被伪装的问题"><a href="#使用数字证书解决通信方身份可能被伪装的问题" class="headerlink" title="使用数字证书解决通信方身份可能被伪装的问题"></a>使用数字证书解决通信方身份可能被伪装的问题</h4><p><strong>数字证书认证机构（Certificate Authority，简称CA）</strong>处于客户端与服务器双方都可信赖的第三方机构的立场上。我们来介绍一下数字证书认证机构的业务流程。</p>
+<ol>
+<li>服务器的运营人员向数字证书认证机构提出公开密钥的申请</li>
+<li>数字证书认证机构在判明提出申请者的身份之后，会对已申请的公开密钥做数字签名</li>
+<li>然后分配这个已签名的公开密钥，并将该公开密钥放入公钥证书后绑定在一起</li>
+<li>服务器会将这份由数字证书认证机构颁发的公钥证书发送给客户端，以进行非对称加密方式通信。公钥证书也可叫做数字证书或直接称为证书。</li>
+<li>接到证书的客户端可使用数字证书认证机构的公开密钥，对那张证书上的数字签名进行验证，一旦验证通过，客户端便可明确两件事：</li>
+</ol>
+<p>​    一、认证服务器的公开密钥的是真实有效的数字证书认证机构。</p>
+<p>​    二、服务器的公开密钥是值得信赖的。</p>
+<h2 id="什么是强缓存和协商缓存"><a href="#什么是强缓存和协商缓存" class="headerlink" title="什么是强缓存和协商缓存"></a>什么是强缓存和协商缓存</h2><p><strong>强缓存：</strong>浏览器不会像服务器发送任何请求，直接从本地缓存中读取文件并返回Status Code: 200 OK</p>
+<p>Expires：过期时间，如果设置了时间，则浏览器会在设置的时间内直接读取缓存，不再请求</p>
+<p>Cache-Control：当值设为max-age=300时，则代表在这个请求正确返回时间（浏览器也会记录下来）的5分钟内再次加载资源，就会命中强缓存。</p>
+<p>cache-control：除了该字段外，还有下面几个比较常用的设置值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">（1）max-age：用来设置资源（representations）可以被缓存多长时间，单位为秒；</span><br><span class="line">（2）s-maxage：和max-age是一样的，不过它只针对代理服务器缓存而言；</span><br><span class="line">（3）public：指示响应可被任何缓存区缓存；</span><br><span class="line">（4）private：只能针对个人用户，而不能被代理服务器缓存；</span><br><span class="line">（5）no-cache：强制客户端直接向服务器发送请求,也就是说每次请求都必须向服务器发送。服务器接收到     请求，然后判断资源是否变更，是则返回新内容，否则返回304，未变更。这个很容易让人产生误解，使人误     以为是响应不被缓存。实际上Cache-Control:     no-cache是会被缓存的，只不过每次在向客户端（浏览器）提供响应数据时，缓存都要向服务器评估缓存响应的有效性。</span><br><span class="line">（6）no-store：禁止一切缓存（这个才是响应不被缓存的意思）。</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>cache-control是http1.1的头字段，expires是http1.0的头字段,如果expires和cache-control同时存在，cache-control会覆盖expires，建议两个都写。</p>
+</blockquote>
+<p><strong>协商缓存：</strong> 向服务器发送请求，服务器会根据这个请求的request header的一些参数来判断是否命中协商缓存，如果命中，则返回304状态码并带上新的response header通知浏览器从缓存中读取资源</p>
+<p>Last-Modifed/If-Modified-Since和Etag/If-None-Match是分别成对出现的，呈一一对应关系</p>
+<h5 id="Etag-If-None-Match："><a href="#Etag-If-None-Match：" class="headerlink" title="Etag/If-None-Match："></a>Etag/If-None-Match：</h5><p>Etag：</p>
+<blockquote>
+<p>Etag是属于HTTP 1.1属性，它是由服务器（Apache或者其他工具）生成返回给前端，用来帮助服务器控制Web端的缓存验证。 Apache中，ETag的值，默认是对文件的索引节（INode），大小（Size）和最后修改时间（MTime）进行Hash后得到的。</p>
+</blockquote>
+<p>If-None-Match:</p>
+<blockquote>
+<p>当资源过期时，浏览器发现响应头里有Etag,则再次像服务器请求时带上请求头if-none-match(值是Etag的值)。服务器收到请求进行比对，决定返回200或304</p>
+</blockquote>
+<p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/GJCuOP-16a8c60fb0ef49f0~tplv-t2oaga2asx-watermark.awebp" alt="img"></p>
+<h5 id="Last-Modifed-If-Modified-Since："><a href="#Last-Modifed-If-Modified-Since：" class="headerlink" title="Last-Modifed/If-Modified-Since："></a>Last-Modifed/If-Modified-Since：</h5><p>Last-Modified：</p>
+<blockquote>
+<p>浏览器向服务器发送资源最后的修改时间</p>
+</blockquote>
+<p>If-Modified-Since：</p>
+<blockquote>
+<p>当资源过期时（浏览器判断Cache-Control标识的max-age过期），发现响应头具有Last-Modified声明，则再次向服务器请求时带上头if-modified-since，表示请求时间。服务器收到请求后发现有if-modified-since则与被请求资源的最后修改时间进行对比（Last-Modified）,若最后修改时间较新（大），说明资源又被改过，则返回最新资源，HTTP 200 OK;若最后修改时间较旧（小），说明资源无新修改，响应HTTP 304 走缓存。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Last-Modifed/If-Modified-Since的时间精度是秒，而Etag可以更精确。</li>
+<li>Etag优先级是高于Last-Modifed的，所以服务器会优先验证Etag</li>
+<li>Last-Modifed/If-Modified-Since是http1.0的头字段</li>
+</ul>
+</blockquote>
+<h2 id="常见的HTTP状态码有哪些，都代表了什么含义？"><a href="#常见的HTTP状态码有哪些，都代表了什么含义？" class="headerlink" title="常见的HTTP状态码有哪些，都代表了什么含义？"></a>常见的HTTP状态码有哪些，都代表了什么含义？</h2><h3 id="2XX-Success-成功状态码"><a href="#2XX-Success-成功状态码" class="headerlink" title="2XX(Success 成功状态码)"></a>2XX(Success 成功状态码)</h3><p>2XX 响应的结果标明请求被正常处理了</p>
+<h4 id="200-OK"><a href="#200-OK" class="headerlink" title="200 OK"></a>200 OK</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/soRTPw-16029efa6af2ea6c~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<blockquote>
+<p>表示从客户端发来的请求在服务器端被正常处理了</p>
+</blockquote>
+<p>在响应报文内，随状态码一起返回的信息会因方法的不同而发生改变。比如，使用 GET 方法时，对应请求资源的实体会作为响应返回;而使用 HEAD 方法 时，对应请求资源的实体首部不随报文主体作为响应返回(即在响应中只返回首部，不会返回实体的主体部分)。</p>
+<h4 id="204-No-Content"><a href="#204-No-Content" class="headerlink" title="204 No Content"></a>204 No Content</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/Jf2qvI-16029efa697ec682~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<p>该状态码代表服务器接收的请求已成功处理，但在返回的响应报文中不含实体的主体部分。另外，也不允许返回任何实体的主体。比如，当从浏览器发出请求 处理后，返回 204 响应，那么浏览器显示的页面不发生更新。</p>
+<blockquote>
+<p>一般在只需要从客户端往服务器发送信息，而对客户端不需要发送新信息内容的情况下使用</p>
+</blockquote>
+<h4 id="206-Partial-Content"><a href="#206-Partial-Content" class="headerlink" title="206 Partial Content"></a>206 Partial Content</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/Hkua7T-16029efb76d2b65f~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<blockquote>
+<p>该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的 GET 请求<br> 响应报文中包含由 <strong>Content-Range</strong> 指定范围的实体内容</p>
+</blockquote>
+<h3 id="3XX-Redirection-重定向状态码"><a href="#3XX-Redirection-重定向状态码" class="headerlink" title="3XX(Redirection 重定向状态码)"></a>3XX(Redirection 重定向状态码)</h3><p>3XX 响应结果表明浏览器需要执行某些特殊的处理以正确处理请求</p>
+<h4 id="301-Moved-Permanently"><a href="#301-Moved-Permanently" class="headerlink" title="301 Moved Permanently"></a>301 Moved Permanently</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/u9uGwU-16029efa6a4ba749~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<blockquote>
+<p>永久性重定向</p>
+</blockquote>
+<p>该状态码表示请求的资源已被分配了新的 URI，以后应使用资源现在所指的 URI。也就是说，如果已经把资源对应的 URI 保存为书签了，这时应该按 Location 首部字段提示的 URI 重新保存</p>
+<h4 id="302-Found"><a href="#302-Found" class="headerlink" title="302 Found"></a>302 Found</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/wwXNW3-16029efba78b2b7e~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<blockquote>
+<p>临时性重定向</p>
+</blockquote>
+<p>该状态码表示请求的资源已被分配了新的 URI，希望用户(本次)能使用新的 URI 访问。 和 301 Moved Permanently 状态码相似，但 302 状态码代表的资源不是被永久移动，只是临时性质的。换句话说，已移动的资源对应的 URI 将来还有可能发生改 变。比如，用户把 URI 保存成书签，但不会像 301 状态码出现时那样去更新书签，而是仍旧保留返回 302 状态码的页面对应的 URI。</p>
+<h4 id="303-See-Other"><a href="#303-See-Other" class="headerlink" title="303 See Other"></a>303 See Other</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/kr6eVz-16029efbc1b5cfce~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<blockquote>
+<p>该状态码表示由于请求对应的资源存在着另一个 URI，应使用 GET 方法定向获取请求的资源。</p>
+</blockquote>
+<p>303 状态码和 302 Found 状态码有着相同的功能，但 303 状态码明确表示客户端应当采用 GET 方法获取资源，这点与 302 状态码有区别。 比如，当使用 POST 方法访问 CGI 程序，其执行后的处理结果是希望客户端能以 GET 方法重定向到另一个 URI 上去时，返回 303 状态码。虽然 302 Found 状态码也可以实现相同的功能，但这里使用 303 状态码是最理想的</p>
+<blockquote>
+<p>当 301、302、303 响应状态码返回时，几乎所有的浏览器都会把 POST 改成 GET，并删除请求报文内的主体，之后请求会自动再次发送<br> 301、302 标准是禁止将 POST 方法改变成 GET 方法的，但实际使用时大家都会这么做</p>
+</blockquote>
+<h4 id="304-Not-Modified"><a href="#304-Not-Modified" class="headerlink" title="304 Not Modified"></a>304 Not Modified</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/Hl5964-16029efaa07f726e~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<p>该状态码表示客户端发送附带条件的请求时，服务器端允许请求访问资源，但未满足条件的情况。304 状态码返回时，不包含任何响应的主体部分。304 虽 然被划分在 3XX 类别中，但是和重定向没有关系。</p>
+<blockquote>
+<p>附带条件的请求是指采用 GET 方法的请求报文中包含 If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since 中任一首部</p>
+</blockquote>
+<h4 id="307-Temporary-Redirect"><a href="#307-Temporary-Redirect" class="headerlink" title="307 Temporary Redirect"></a>307 Temporary Redirect</h4><p>临时重定向。该状态码与 302 Found 有着相同的含义。尽管 302 标准禁止 POST 变换成 GET，但实际使用时大家并不遵守</p>
+<p>307 会遵照浏览器标准，不会从 POST 变成 GET。但是，对于处理响应时的行为，每种浏览器有可能出现不同的情况</p>
+<h3 id="4XX-Client-Error-客户端错误状态码"><a href="#4XX-Client-Error-客户端错误状态码" class="headerlink" title="4XX(Client Error 客户端错误状态码)"></a>4XX(Client Error 客户端错误状态码)</h3><p>4XX 的响应结果表明客户端是发生错误的原因所在</p>
+<h4 id="400-Bad-Request"><a href="#400-Bad-Request" class="headerlink" title="400 Bad Request"></a>400 Bad Request</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/Q4HWzU-16029efaa064bdb6~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<p>该状态码表示请求报文中存在语法错误。当错误发生时，需修改请求的内容后再次发送请求。另外，浏览器会像 200 OK 一样对待该状态码。</p>
+<h4 id="401-Unauthorized"><a href="#401-Unauthorized" class="headerlink" title="401 Unauthorized"></a>401 Unauthorized</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/64QWKf-16029efacc2e6a4c~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<p>该状态码表示发送的请求需要有通过 HTTP 认证(BASIC 认证、DIGEST 认证)的认证信息。另外若之前已进行过 1 次请求，则表示用 户认证失败</p>
+<p>返回含有 401 的响应必须包含一个适用于被请求资源的 WWW-Authenticate 首部用以质询(challenge)用户信息。当浏览器初次接收到 401 响应，会弹出认证用的对话窗口</p>
+<h4 id="403-Forbidden"><a href="#403-Forbidden" class="headerlink" title="403 Forbidden"></a>403 Forbidden</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/2drMZR-16029efaa0cce655~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<p>该状态码表明对请求资源的访问被服务器拒绝了。服务器端没有必要给出拒绝的详细理由，但如果想作说明的话，可以在实体的主体部分对原因进行描述，这样就能让用户看到了</p>
+<p>未获得文件系统的访问授权，访问权限出现某些问题(从未授权的发送源 IP 地址试图访问)等列举的情况都可能是发生 403 的原因</p>
+<h4 id="404-Not-Found"><a href="#404-Not-Found" class="headerlink" title="404 Not Found"></a>404 Not Found</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/e5L4we-16029efac97cd782~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<p>该状态码表明服务器上无法找到请求的资源。除此之外，也可以在服务器端拒绝请求且不想说明理由时使用</p>
+<h4 id="405-Method-Not-Allowed"><a href="#405-Method-Not-Allowed" class="headerlink" title="405 Method Not Allowed"></a>405 Method Not Allowed</h4><p>该状态码标明，客户端请求的方法虽然能被服务器识别，但是服务器禁止使用该方法</p>
+<blockquote>
+<p>GET 和 HEAD 方法，服务器应该总是允许客户端进行访问</p>
+</blockquote>
+<p>客户端可以通过 OPTIONS 方法来查看服务器允许的访问方法, 如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Methods →GET,HEAD,PUT,PATCH,POST,DELETE</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="5XX-Server-Error-服务器错误状态码"><a href="#5XX-Server-Error-服务器错误状态码" class="headerlink" title="5XX(Server Error 服务器错误状态码)"></a>5XX(Server Error 服务器错误状态码)</h3><p>5XX 的响应结果表明服务器本身发生错误</p>
+<h4 id="500-Internal-Server-Error"><a href="#500-Internal-Server-Error" class="headerlink" title="500 Internal Server Error"></a>500 Internal Server Error</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/X3x3VD-16029efae2420839~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<p>该状态码表明服务器端在执行请求时发生了错误。也有可能是 Web 应用存在的 bug 或某些临时的故障</p>
+<h4 id="502-Bad-Gateway"><a href="#502-Bad-Gateway" class="headerlink" title="502 Bad Gateway"></a>502 Bad Gateway</h4><p>该状态码表明扮演网关或代理角色的服务器，从上游服务器中接收到的响应是无效的</p>
+<blockquote>
+<p>502 错误通常不是客户端能够修复的，而是需要由途径的 Web 服务器或者代理服务器对其进行修复</p>
+</blockquote>
+<h4 id="503-Service-Unavailable"><a href="#503-Service-Unavailable" class="headerlink" title="503 Service Unavailable"></a>503 Service Unavailable</h4><p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/Pjgq3P-16029efaf01b284a~tplv-t2oaga2asx-watermark.awebp" alt="图片摘取自HTTP图解"></p>
+<p>该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。如果事先得知解除以上状况需要的时间，最好写入 RetryAfter 首部字段再返回 给客户端</p>
+<blockquote>
+<p>状态码和状况的不一致<br> 不少返回的状态码响应都是错误的，但是用户可能察觉不到这点。比如 Web 应用程序内部发生错误，状态码依然返回 200 OK，这种情况也经常遇到。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">远方</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://showydream.com/p/dc44fbe2.html">https://showydream.com/p/dc44fbe2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://showydream.com" target="_blank">远方的Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%9D%A2%E7%BB%8F/">面经</a></div><div class="post_share"><div class="social-share" data-image="HTTPs://img.showydream.com/img/SoFF52-ryunosuke-kikuno-hyWy0z4UayE-unsplash.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/ba2243e3.html"><img class="prev-cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/47xgal-matt-wang-T7K0oKILrf0-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Vue跳转页面锚点</div></div></a></div><div class="next-post pull-right"><a href="/p/f7d249b0.html"><img class="next-cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/uSzhc3-white-wall-clock-on-blue-background-picture-id1289661784.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">学习CSS3中rotate函数并画了个时钟</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/p/104be820.html" title="前端BFC"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-02</div><div class="title">前端BFC</div></div></a></div><div><a href="/p/5205ee75.html" title="面试题"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/iZX9MU-picography-food-platters-beach-restaurant-small-768x512.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-22</div><div class="title">面试题</div></div></a></div><div><a href="/p/a1abb679.html" title="详解Promise"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/VFqazk-post-image1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-29</div><div class="title">详解Promise</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/HaBjml-IMG_2383.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">远方</div><div class="author-info__description">好记性不如烂笔头</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zhxqc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%92%8CHTTPs%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">HTTP和HTTPs的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88HTTPS%E6%AF%94HTTP%E5%AE%89%E5%85%A8"><span class="toc-number">2.</span> <span class="toc-text">为什么HTTPS比HTTP安全?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">HTTP的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3HTTP%E4%B8%8A%E8%BF%B0%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">2.2.</span> <span class="toc-text">HTTPS如何解决HTTP上述问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%86%B3%E5%86%85%E5%AE%B9%E5%8F%AF%E8%83%BD%E8%A2%AB%E7%AA%83%E5%90%AC%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.2.1.</span> <span class="toc-text">使用加密解决内容可能被窃听的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E8%A7%A3%E5%86%B3%E6%8A%A5%E6%96%87%E5%8F%AF%E8%83%BD%E9%81%AD%E5%88%B0%E7%AF%A1%E6%94%B9%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.2.2.</span> <span class="toc-text">使用数字签名解决报文可能遭到篡改的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6%E8%A7%A3%E5%86%B3%E9%80%9A%E4%BF%A1%E6%96%B9%E8%BA%AB%E4%BB%BD%E5%8F%AF%E8%83%BD%E8%A2%AB%E4%BC%AA%E8%A3%85%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.2.3.</span> <span class="toc-text">使用数字证书解决通信方身份可能被伪装的问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%BA%E7%BC%93%E5%AD%98%E5%92%8C%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-number">3.</span> <span class="toc-text">什么是强缓存和协商缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Etag-If-None-Match%EF%BC%9A"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">Etag&#x2F;If-None-Match：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Last-Modifed-If-Modified-Since%EF%BC%9A"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">Last-Modifed&#x2F;If-Modified-Since：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84HTTP%E7%8A%B6%E6%80%81%E7%A0%81%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%8C%E9%83%BD%E4%BB%A3%E8%A1%A8%E4%BA%86%E4%BB%80%E4%B9%88%E5%90%AB%E4%B9%89%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">常见的HTTP状态码有哪些，都代表了什么含义？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2XX-Success-%E6%88%90%E5%8A%9F%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">4.1.</span> <span class="toc-text">2XX(Success 成功状态码)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#200-OK"><span class="toc-number">4.1.1.</span> <span class="toc-text">200 OK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#204-No-Content"><span class="toc-number">4.1.2.</span> <span class="toc-text">204 No Content</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#206-Partial-Content"><span class="toc-number">4.1.3.</span> <span class="toc-text">206 Partial Content</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3XX-Redirection-%E9%87%8D%E5%AE%9A%E5%90%91%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">4.2.</span> <span class="toc-text">3XX(Redirection 重定向状态码)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#301-Moved-Permanently"><span class="toc-number">4.2.1.</span> <span class="toc-text">301 Moved Permanently</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#302-Found"><span class="toc-number">4.2.2.</span> <span class="toc-text">302 Found</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#303-See-Other"><span class="toc-number">4.2.3.</span> <span class="toc-text">303 See Other</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#304-Not-Modified"><span class="toc-number">4.2.4.</span> <span class="toc-text">304 Not Modified</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#307-Temporary-Redirect"><span class="toc-number">4.2.5.</span> <span class="toc-text">307 Temporary Redirect</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4XX-Client-Error-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%94%99%E8%AF%AF%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">4.3.</span> <span class="toc-text">4XX(Client Error 客户端错误状态码)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#400-Bad-Request"><span class="toc-number">4.3.1.</span> <span class="toc-text">400 Bad Request</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#401-Unauthorized"><span class="toc-number">4.3.2.</span> <span class="toc-text">401 Unauthorized</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#403-Forbidden"><span class="toc-number">4.3.3.</span> <span class="toc-text">403 Forbidden</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#404-Not-Found"><span class="toc-number">4.3.4.</span> <span class="toc-text">404 Not Found</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#405-Method-Not-Allowed"><span class="toc-number">4.3.5.</span> <span class="toc-text">405 Method Not Allowed</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5XX-Server-Error-%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%94%99%E8%AF%AF%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">4.4.</span> <span class="toc-text">5XX(Server Error 服务器错误状态码)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#500-Internal-Server-Error"><span class="toc-number">4.4.1.</span> <span class="toc-text">500 Internal Server Error</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#502-Bad-Gateway"><span class="toc-number">4.4.2.</span> <span class="toc-text">502 Bad Gateway</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#503-Service-Unavailable"><span class="toc-number">4.4.3.</span> <span class="toc-text">503 Service Unavailable</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/4c68c92e.html" title="一篇文章轻松掌握Flexbox布局，建议收藏"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一篇文章轻松掌握Flexbox布局，建议收藏"/></a><div class="content"><a class="title" href="/p/4c68c92e.html" title="一篇文章轻松掌握Flexbox布局，建议收藏">一篇文章轻松掌握Flexbox布局，建议收藏</a><time datetime="2023-03-24T14:42:46.000Z" title="发表于 2023-03-24 14:42:46">2023-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/d3866813.html" title="让您的网页更有吸引力：学习如何使用CSS动画"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让您的网页更有吸引力：学习如何使用CSS动画"/></a><div class="content"><a class="title" href="/p/d3866813.html" title="让您的网页更有吸引力：学习如何使用CSS动画">让您的网页更有吸引力：学习如何使用CSS动画</a><time datetime="2023-03-23T14:41:17.000Z" title="发表于 2023-03-23 14:41:17">2023-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/8172d94b.html" title="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！"/></a><div class="content"><a class="title" href="/p/8172d94b.html" title="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！">CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！</a><time datetime="2023-03-22T14:39:21.000Z" title="发表于 2023-03-22 14:39:21">2023-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/fedfdf36.html" title="中文大约的确已经死了"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中文大约的确已经死了"/></a><div class="content"><a class="title" href="/p/fedfdf36.html" title="中文大约的确已经死了">中文大约的确已经死了</a><time datetime="2022-07-08T13:12:09.000Z" title="发表于 2022-07-08 13:12:09">2022-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/c6cade5d.html" title="寻找最近的回文数"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/oe4Yg6-leetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="寻找最近的回文数"/></a><div class="content"><a class="title" href="/p/c6cade5d.html" title="寻找最近的回文数">寻找最近的回文数</a><time datetime="2022-03-02T14:35:49.000Z" title="发表于 2022-03-02 14:35:49">2022-03-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By 远方</div><div class="footer_custom_text"><a href="https://beian.miit.gov.cn/" target='_blank'><span>京ICP备2021007056号-2</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>

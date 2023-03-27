@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Webpack简介 | 远方的Blog</title><meta name="keywords" content="Webpack，面试题，面经"><meta name="author" content="远方"><meta name="copyright" content="远方"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Webpack Q&amp;A笔记，持续更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Webpack简介">
+<meta property="og:url" content="https://showydream.com/p/53ff0523.html">
+<meta property="og:site_name" content="远方的Blog">
+<meta property="og:description" content="Webpack Q&amp;A笔记，持续更新">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png">
+<meta property="article:published_time" content="2021-09-03T17:54:58.000Z">
+<meta property="article:modified_time" content="2021-11-05T14:00:00.000Z">
+<meta property="article:author" content="远方">
+<meta property="article:tag" content="Webpack">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://showydream.com/p/53ff0523"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Webpack简介',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-05 14:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/HaBjml-IMG_2383.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">远方的Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Webpack简介</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-09-03T17:54:58.000Z" title="发表于 2021-09-03 17:54:58">2021-09-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-05T14:00:00.000Z" title="更新于 2021-11-05 14:00:00">2021-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Webpack/">Webpack</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="对Webpack的理解，解决了什么问题？"><a href="#对Webpack的理解，解决了什么问题？" class="headerlink" title="对Webpack的理解，解决了什么问题？"></a>对Webpack的理解，解决了什么问题？</h2><p><code>Webpack</code>是一个用于现代<code>JavaScript</code>应用程序的静态模块打包工具。</p>
+<h3 id="静态模块"><a href="#静态模块" class="headerlink" title="静态模块"></a>静态模块</h3><p>这里的静态模块指的是开发阶段，可以被<code>webpack</code>直接引用的资源（可以直接被获取打包进<code>bundle.js</code>的资源）</p>
+<p>当<code>webpack</code>处理应用程序时，它会在内部构建一个依赖图，此依赖图对应映射到项目所需的每个模块（不再局限于<code>js</code>文件），并生成一个或多个<code>bundle</code></p>
+<img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/1CmJJS-image-20210827122030611.png" alt="image-20210827122030611" style="zoom:50%;" />
+
+<h3 id="webpack的能力和解决的问题"><a href="#webpack的能力和解决的问题" class="headerlink" title="webpack的能力和解决的问题"></a>webpack的能力和解决的问题</h3><ul>
+<li><p>编译代码能力</p>
+<p>在开发过程中，我们经常会使用一些高级的特性来加快我们的开发效率或者安全性，比如通过<code>ES6</code>+<code>TypeScript</code>开发脚本逻辑，通过<code>sass</code>、<code>less</code>等方式来编写<code>css</code>样式代码。<code>webpack</code>可以通过编译的形式，把不同特性的代码编译成浏览器能识别的<code>ES5</code>语法或者<code>css</code>文件，解决浏览器兼容问题</p>
+<p>压缩代码，优化网站性能</p>
+</li>
+<li><p>模块整合能力</p>
+<p>提高性能，可维护性，解决浏览器频繁请求文件的问题</p>
+</li>
+<li><p>万物皆可模块化能力</p>
+<p>项目维护性增强，支持不同种类的前端模块类型，统一的模块化方案，所有资源文件的加载可以通过代码控制</p>
+</li>
+</ul>
+<h2 id="webpack的构建流程"><a href="#webpack的构建流程" class="headerlink" title="webpack的构建流程"></a>webpack的构建流程</h2><h3 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h3><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://user-images.githubusercontent.com/26785201/89747816-fe344280-daf2-11ea-820a-6a1a99e34f14.png" alt="img"/>
+
+<p><code>webpack</code>的运行过程是一个串行的过程，从启动到结束会依次执行以下流程：</p>
+<ol>
+<li>首先会从配置文件和<code>Shell</code>语句中读取与合并参数，并初始化需要使用的插件和配置插件等执行环境所需要的参数。</li>
+<li>初始化完成后会调用<code>Complier</code>的<code>run</code>来真正启动<code>webpack</code>编译构建过程，<code>webpack</code>的构建流程包括<code>compile</code>、<code>make</code>、<code>build</code>、<code>seal</code>、<code>emit</code>阶段，执行完这些阶段就完成了构建过程。</li>
+</ol>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><h4 id="entry-options-启动"><a href="#entry-options-启动" class="headerlink" title="entry-options 启动"></a>entry-options 启动</h4><p>从配置文件和 <code>Shell</code> 语句中读取与合并参数，得出最终的参数。</p>
+<h4 id="run-实例化"><a href="#run-实例化" class="headerlink" title="run 实例化"></a>run 实例化</h4><p><code>compiler</code>：用上一步得到的参数初始化 <code>Compiler</code> 对象，加载所有配置的插件，执行对象的 <code>run</code> 方法开始执行编译</p>
+<h3 id="编译构建"><a href="#编译构建" class="headerlink" title="编译构建"></a>编译构建</h3><h4 id="entry-确定入口"><a href="#entry-确定入口" class="headerlink" title="entry 确定入口"></a>entry 确定入口</h4><p>根据配置中的 <code>entry</code> 找出所有的入口文件</p>
+<h4 id="make-编译模块"><a href="#make-编译模块" class="headerlink" title="make 编译模块"></a>make 编译模块</h4><p>从入口文件出发，调用所有配置的 <code>Loader</code> 对模块进行翻译，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理</p>
+<h4 id="build-module-完成模块编译"><a href="#build-module-完成模块编译" class="headerlink" title="build module 完成模块编译"></a>build module 完成模块编译</h4><p>经过上面一步使用 <code>Loader</code> 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系</p>
+<h4 id="seal-输出资源"><a href="#seal-输出资源" class="headerlink" title="seal 输出资源"></a>seal 输出资源</h4><p>根据入口和模块之间的依赖关系，组装成一个个包含多个模块的 <code>Chunk</code>，再把每个 <code>Chunk</code> 转换成一个单独的文件加入到输出列表，这步是可以修改输出内容的最后机会</p>
+<h4 id="emit-输出完成"><a href="#emit-输出完成" class="headerlink" title="emit 输出完成"></a>emit 输出完成</h4><p>在确定好输出内容后，根据配置确定输出的路径和文件名，把文件内容写入到文件系统</p>
+<img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/XRGqwK-image-20210903115330607.png" alt="image-20210903115330607" style="zoom:50%;" />
+
+
+<h2 id="webpack-config-js-配置Demo"><a href="#webpack-config-js-配置Demo" class="headerlink" title="webpack.config.js 配置Demo"></a>webpack.config.js 配置Demo</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> node_modules = path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;node_modules&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> pathToReact = path.<span class="title function_">resolve</span>(node_modules, <span class="string">&#x27;react/dist/react.min.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// 入口文件，是模块构建的起点，同时每一个入口文件对应最后生成的一个 chunk。</span></span><br><span class="line">  <span class="attr">entry</span>: &#123;</span><br><span class="line">    <span class="attr">bundle</span>: [</span><br><span class="line">      <span class="string">&#x27;webpack/hot/dev-server&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;webpack-dev-server/client?http://localhost:8080&#x27;</span>,</span><br><span class="line">      path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;app/app.js&#x27;</span>)</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 文件路径指向(可加快打包过程)。</span></span><br><span class="line">  <span class="attr">resolve</span>: &#123;</span><br><span class="line">    <span class="attr">alias</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;react&#x27;</span>: pathToReact</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 生成文件，是模块构建的终点，包括输出文件与输出路径。</span></span><br><span class="line">  <span class="attr">output</span>: &#123;</span><br><span class="line">    <span class="attr">path</span>: path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;build&#x27;</span>),</span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;[name].js&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 这里配置了处理各模块的 loader ，包括 css 预处理 loader ，es6 编译 loader，图片处理 loader。</span></span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">loaders</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">        <span class="attr">loader</span>: <span class="string">&#x27;babel&#x27;</span>,</span><br><span class="line">        <span class="attr">query</span>: &#123;</span><br><span class="line">          <span class="attr">presets</span>: [<span class="string">&#x27;es2015&#x27;</span>, <span class="string">&#x27;react&#x27;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">noParse</span>: [pathToReact]</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// webpack 各插件对象，在 webpack 的事件流中执行对应的方法。</span></span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="keyword">new</span> webpack.<span class="title class_">HotModuleReplacementPlugin</span>()</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>除此之外再大致介绍下webpack的一些核心概念：</p>
+<ul>
+<li><h5 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h5><p>能转换各类资源，并处理成对应模块的加载器。</p>
+<p>loader间可以串行使用。</p>
+</li>
+<li><h5 id="chunk"><a href="#chunk" class="headerlink" title="chunk"></a>chunk</h5><p>code splitting后的产物，也就是按需加载的分块，装载了不同的module。</p>
+</li>
+</ul>
+<p>对于 module 和 chunk 的关系可以参照 webpack 官方的这张图：</p>
+<p><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/VXlztt-TB1B0DXNXXXXXXdXFXXXXXXXXXX-368-522.jpg" alt="img"></p>
+<ul>
+<li><h5 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h5><p>webpack插件的实体，这里以<code>UglifyJsPlugin</code>为例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">UglifyJsPlugin</span>(<span class="params">options</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">options</span> = options;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title class_">UglifyJsPlugin</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">UglifyJsPlugin</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">apply</span> = <span class="keyword">function</span>(<span class="params">compiler</span>) &#123;</span><br><span class="line">  compiler.<span class="title function_">plugin</span>(<span class="string">&quot;compilation&quot;</span>, <span class="keyword">function</span>(<span class="params">compilation</span>) &#123;</span><br><span class="line">    compilation.<span class="title function_">plugin</span>(<span class="string">&quot;build-module&quot;</span>, <span class="keyword">function</span>(<span class="params"><span class="variable language_">module</span></span>) &#123;</span><br><span class="line">    &#125;);</span><br><span class="line">    compilation.<span class="title function_">plugin</span>(<span class="string">&quot;optimize-chunk-assets&quot;</span>, <span class="keyword">function</span>(<span class="params">chunks, callback</span>) &#123;</span><br><span class="line">      <span class="comment">// Uglify 逻辑</span></span><br><span class="line">    &#125;);</span><br><span class="line">    compilation.<span class="title function_">plugin</span>(<span class="string">&quot;normal-module-loader&quot;</span>, <span class="keyword">function</span>(<span class="params">context</span>) &#123;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在webpack中你经常可以看到<code>compilation.plugin(&#39;xxx&#39;,callback)</code>，你可以把它当做一个事件的绑定，这些事件在打包时由webpack来触发。</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">远方</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://showydream.com/p/53ff0523.html">https://showydream.com/p/53ff0523.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://showydream.com" target="_blank">远方的Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Webpack/">Webpack</a></div><div class="post_share"><div class="social-share" data-image="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/90141316.html"><img class="prev-cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/rgz1H3-bryony-elena-ByraPj141bo-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Nuxt优化笔记</div></div></a></div><div class="next-post pull-right"><a href="/p/7c042f87.html"><img class="next-cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/OtxkRZ-how-to-build-a-rest-api-with-golang-using-gin-and-gorm.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">gin中文文档</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/p/f39d325f.html" title="Weback使用小技巧"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-08</div><div class="title">Weback使用小技巧</div></div></a></div><div><a href="/p/ceada707.html" title="Webpack中的Plugin总结"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-04</div><div class="title">Webpack中的Plugin总结</div></div></a></div><div><a href="/p/e6ad105.html" title="webpack中的Loader总结"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-03</div><div class="title">webpack中的Loader总结</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/HaBjml-IMG_2383.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">远方</div><div class="author-info__description">好记性不如烂笔头</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zhxqc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9Webpack%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%8C%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">对Webpack的理解，解决了什么问题？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%A8%A1%E5%9D%97"><span class="toc-number">1.1.</span> <span class="toc-text">静态模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E7%9A%84%E8%83%BD%E5%8A%9B%E5%92%8C%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">webpack的能力和解决的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack%E7%9A%84%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">webpack的构建流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">运行流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.2.</span> <span class="toc-text">初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#entry-options-%E5%90%AF%E5%8A%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">entry-options 启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#run-%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="toc-number">2.2.2.</span> <span class="toc-text">run 实例化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%9E%84%E5%BB%BA"><span class="toc-number">2.3.</span> <span class="toc-text">编译构建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#entry-%E7%A1%AE%E5%AE%9A%E5%85%A5%E5%8F%A3"><span class="toc-number">2.3.1.</span> <span class="toc-text">entry 确定入口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#make-%E7%BC%96%E8%AF%91%E6%A8%A1%E5%9D%97"><span class="toc-number">2.3.2.</span> <span class="toc-text">make 编译模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#build-module-%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9D%97%E7%BC%96%E8%AF%91"><span class="toc-number">2.3.3.</span> <span class="toc-text">build module 完成模块编译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#seal-%E8%BE%93%E5%87%BA%E8%B5%84%E6%BA%90"><span class="toc-number">2.3.4.</span> <span class="toc-text">seal 输出资源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#emit-%E8%BE%93%E5%87%BA%E5%AE%8C%E6%88%90"><span class="toc-number">2.3.5.</span> <span class="toc-text">emit 输出完成</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack-config-js-%E9%85%8D%E7%BD%AEDemo"><span class="toc-number">3.</span> <span class="toc-text">webpack.config.js 配置Demo</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#loader"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">loader</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#chunk"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">chunk</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#plugin"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">plugin</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/4c68c92e.html" title="一篇文章轻松掌握Flexbox布局，建议收藏"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一篇文章轻松掌握Flexbox布局，建议收藏"/></a><div class="content"><a class="title" href="/p/4c68c92e.html" title="一篇文章轻松掌握Flexbox布局，建议收藏">一篇文章轻松掌握Flexbox布局，建议收藏</a><time datetime="2023-03-24T14:42:46.000Z" title="发表于 2023-03-24 14:42:46">2023-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/d3866813.html" title="让您的网页更有吸引力：学习如何使用CSS动画"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让您的网页更有吸引力：学习如何使用CSS动画"/></a><div class="content"><a class="title" href="/p/d3866813.html" title="让您的网页更有吸引力：学习如何使用CSS动画">让您的网页更有吸引力：学习如何使用CSS动画</a><time datetime="2023-03-23T14:41:17.000Z" title="发表于 2023-03-23 14:41:17">2023-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/8172d94b.html" title="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！"/></a><div class="content"><a class="title" href="/p/8172d94b.html" title="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！">CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！</a><time datetime="2023-03-22T14:39:21.000Z" title="发表于 2023-03-22 14:39:21">2023-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/fedfdf36.html" title="中文大约的确已经死了"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中文大约的确已经死了"/></a><div class="content"><a class="title" href="/p/fedfdf36.html" title="中文大约的确已经死了">中文大约的确已经死了</a><time datetime="2022-07-08T13:12:09.000Z" title="发表于 2022-07-08 13:12:09">2022-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/c6cade5d.html" title="寻找最近的回文数"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/oe4Yg6-leetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="寻找最近的回文数"/></a><div class="content"><a class="title" href="/p/c6cade5d.html" title="寻找最近的回文数">寻找最近的回文数</a><time datetime="2022-03-02T14:35:49.000Z" title="发表于 2022-03-02 14:35:49">2022-03-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By 远方</div><div class="footer_custom_text"><a href="https://beian.miit.gov.cn/" target='_blank'><span>京ICP备2021007056号-2</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>

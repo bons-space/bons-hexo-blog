@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>webpack中的Loader总结 | 远方的Blog</title><meta name="keywords" content="Webpack，Loader，面经"><meta name="author" content="远方"><meta name="copyright" content="远方"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Webpack Q&amp;A笔记，持续更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack中的Loader总结">
+<meta property="og:url" content="https://showydream.com/p/e6ad105.html">
+<meta property="og:site_name" content="远方的Blog">
+<meta property="og:description" content="Webpack Q&amp;A笔记，持续更新">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png">
+<meta property="article:published_time" content="2021-11-03T17:54:58.000Z">
+<meta property="article:modified_time" content="2021-11-05T14:00:00.000Z">
+<meta property="article:author" content="远方">
+<meta property="article:tag" content="Webpack">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://showydream.com/p/e6ad105"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'webpack中的Loader总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-05 14:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/HaBjml-IMG_2383.JPG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">远方的Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">webpack中的Loader总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-03T17:54:58.000Z" title="发表于 2021-11-03 17:54:58">2021-11-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-05T14:00:00.000Z" title="更新于 2021-11-05 14:00:00">2021-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Webpack/">Webpack</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Loader介绍"><a href="#Loader介绍" class="headerlink" title="Loader介绍"></a>Loader介绍</h2><p>webpack做的事情，仅仅是分析出各种模块的依赖关系，然后整理成资源列表，最终打包生成到指定的文件中。</p>
+<p>上一节我们说过，在webpack内部，任何文件都是模块，不仅仅是<code>js</code>文件。但是在默认情况下，在遇到<code>require</code>和<code>import</code>的时候，webpack只支持对<code>js</code>和<code>json</code>文件的打包，像<code>css</code>、<code>scss</code>、<code>jpg</code>等这些类型的文件，webpack就无能为力了，这时候就用到了loader来对文件的内容进行解析</p>
+<blockquote>
+<p>loader的定义：loader用于对模块的源代码进行转换，在import或加载模块时预处理文件</p>
+</blockquote>
+<p>在加载模块时，执行顺序如下：</p>
+<img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/TFRENB-image-20211104120757749.png" alt="image-20211104120757749" style="zoom:50%;" />
+
+<h5 id="当webpack碰到识别不了的文件时，就会从配置中找该文件的解析规则，来看个示例："><a href="#当webpack碰到识别不了的文件时，就会从配置中找该文件的解析规则，来看个示例：" class="headerlink" title="当webpack碰到识别不了的文件时，就会从配置中找该文件的解析规则，来看个示例："></a>当webpack碰到识别不了的文件时，就会从配置中找该文件的解析规则，来看个示例：</h5><p>使用 loader 告诉 webpack 加载 CSS 文件，或者将 TypeScript 转为 JavaScript。为此，首先安装相对应的 loader：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev css-loader ts-loader</span><br></pre></td></tr></table></figure>
+
+<p>然后指示 webpack 对每个 <code>.css</code> 使用 <a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/css-loader"><code>css-loader</code></a>，以及对所有 <code>.ts</code> 文件使用 <a target="_blank" rel="noopener" href="https://github.com/TypeStrong/ts-loader"><code>ts-loader</code></a>：</p>
+<p><strong>webpack.config.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      <span class="comment">// 将所有TypeScript 转为 JavaScript，</span></span><br><span class="line">      <span class="comment">// 也就意味着我们使用ts来开发，最终转换成js运行在浏览器端</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.ts$/</span>, <span class="attr">use</span>: <span class="string">&#x27;ts-loader&#x27;</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://webpack.docschina.org/configuration/module/#modulerules"><code>module.rules</code></a> 允许你在 webpack 配置中指定多个 loader。 这种方式是展示 loader 的一种简明方式，并且有助于使代码变得简洁和易于维护。同时让你对各个 loader 有个全局概览：</p>
+<p>loader <strong>从右到左</strong>（或<strong>从下到上</strong>）地取值(evaluate)/执行(execute)。在下面的示例中，从 sass-loader 开始执行，然后继续执行 css-loader，最后以 style-loader 为结束。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">module</span>: &#123;</span><br><span class="line">    <span class="attr">rules</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        <span class="attr">use</span>: [</span><br><span class="line">          <span class="comment">// [style-loader](/loaders/style-loader)</span></span><br><span class="line">          &#123; <span class="attr">loader</span>: <span class="string">&#x27;style-loader&#x27;</span> &#125;,</span><br><span class="line">          <span class="comment">// [css-loader](/loaders/css-loader)</span></span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">loader</span>: <span class="string">&#x27;css-loader&#x27;</span>,</span><br><span class="line">            <span class="attr">options</span>: &#123;</span><br><span class="line">              <span class="attr">modules</span>: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="comment">// [sass-loader](/loaders/sass-loader)</span></span><br><span class="line">          &#123; <span class="attr">loader</span>: <span class="string">&#x27;sass-loader&#x27;</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="loader-特性"><a href="#loader-特性" class="headerlink" title="loader 特性"></a>loader 特性</h2><ul>
+<li>loader 支持链式调用。链中的每个 loader 会将转换应用在已处理过的资源上。一组链式的 loader 将按照相反的顺序执行。链中的第一个 loader 将其结果（也就是应用过转换后的资源）传递给下一个 loader，依此类推。最后，链中的最后一个 loader，返回 webpack 所期望的 JavaScript。</li>
+<li>loader 可以是同步的，也可以是异步的。</li>
+<li>loader 运行在 Node.js 中，并且能够执行任何操作。</li>
+<li>loader 可以通过 <code>options</code> 对象配置（仍然支持使用 <code>query</code> 参数来设置选项，但是这种方式已被废弃）。</li>
+<li>除了常见的通过 <code>package.json</code> 的 <code>main</code> 来将一个 npm 模块导出为 loader，还可以在 module.rules 中使用 <code>loader</code> 字段直接引用一个模块。</li>
+<li>插件(plugin)可以为 loader 带来更多特性。</li>
+<li>loader 能够产生额外的任意文件。</li>
+</ul>
+<p>可以通过 loader 的预处理函数，为 JavaScript 生态系统提供更多能力。用户现在可以更加灵活地引入细粒度逻辑，例如：压缩、打包、语言转译（或编译）</p>
+<h2 id="常见的Loader"><a href="#常见的Loader" class="headerlink" title="常见的Loader"></a>常见的Loader</h2><h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/val-loader"><code>val-loader</code></a> 将代码作为模块执行，并将其导出为 JS 代码</li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/ref-loader"><code>ref-loader</code></a> 用于手动建立文件之间的依赖关系</li>
+</ul>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/awnist/cson-loader"><code>cson-loader</code></a> 加载并转换 <a target="_blank" rel="noopener" href="https://github.com/bevry/cson#what-is-cson">CSON</a> 文件</li>
+</ul>
+<h3 id="语法转换"><a href="#语法转换" class="headerlink" title="语法转换"></a>语法转换</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/babel-loader"><code>babel-loader</code></a> 使用 <a target="_blank" rel="noopener" href="https://babeljs.io/">Babel</a> 加载 ES2015+ 代码并将其转换为 ES5</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sairion/buble-loader"><code>buble-loader</code></a> 使用 <a target="_blank" rel="noopener" href="https://buble.surge.sh/guide/">Bublé</a> 加载 ES2015+ 代码并将其转换为 ES5</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jupl/traceur-loader"><code>traceur-loader</code></a> 使用 <a target="_blank" rel="noopener" href="https://github.com/google/traceur-compiler#readme">Traceur</a> 加载 ES2015+ 代码并将其转换为 ES5</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/TypeStrong/ts-loader"><code>ts-loader</code></a> 像加载 JavaScript 一样加载 <a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">TypeScript</a> 2.0+</li>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/coffee-loader"><code>coffee-loader</code></a> 像加载 JavaScript 一样加载 <a target="_blank" rel="noopener" href="http://coffeescript.org/">CoffeeScript</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/fengari-lua/fengari-loader/"><code>fengari-loader</code></a> 使用 <a target="_blank" rel="noopener" href="https://fengari.io/">fengari</a> 加载 Lua 代码</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/elm-community/elm-webpack-loader"><code>elm-webpack-loader</code></a> 像加载 JavaScript 一样加载 <a target="_blank" rel="noopener" href="https://elm-lang.org/">Elm</a></li>
+</ul>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/html-loader"><code>html-loader</code></a> 将 HTML 导出为字符串，需要传入静态资源的引用路径</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pugjs/pug-loader"><code>pug-loader</code></a> 加载 Pug 和 Jade 模板并返回一个函数</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/peerigon/markdown-loader"><code>markdown-loader</code></a> 将 Markdown 编译为 HTML</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/javiercf/react-markdown-loader"><code>react-markdown-loader</code></a> 使用 markdown-parse 解析器将 Markdown 编译为 React 组件</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/posthtml/posthtml-loader"><code>posthtml-loader</code></a> 使用 <a target="_blank" rel="noopener" href="https://github.com/posthtml/posthtml">PostHTML</a> 加载并转换 HTML 文件</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pcardune/handlebars-loader"><code>handlebars-loader</code></a> 将 Handlebars 文件编译为 HTML</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/asnowwolf/markup-inline-loader"><code>markup-inline-loader</code></a> 将 SVG/MathML 文件内嵌到 HTML 中。在将图标字体或 CSS 动画应用于 SVG 时，此功能非常实用。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zimmo-be/twig-loader"><code>twig-loader</code></a> 编译 Twig 模板并返回一个函数</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/webpack-contrib/remark-loader"><code>remark-loader</code></a> 通过 <code>remark</code> 加载 markdown，且支持解析内容中的图片</li>
+</ul>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/style-loader"><code>style-loader</code></a> 将模块导出的内容作为样式并添加到 DOM 中</li>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/css-loader"><code>css-loader</code></a> 加载 CSS 文件并解析 import 的 CSS 文件，最终返回 CSS 代码</li>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/less-loader"><code>less-loader</code></a> 加载并编译 LESS 文件</li>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/sass-loader"><code>sass-loader</code></a> 加载并编译 SASS/SCSS 文件</li>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/postcss-loader"><code>postcss-loader</code></a> 使用 <a target="_blank" rel="noopener" href="http://postcss.org/">PostCSS</a> 加载并转换 CSS/SSS 文件</li>
+<li><a target="_blank" rel="noopener" href="https://webpack.docschina.org/loaders/stylus-loader/"><code>stylus-loader</code></a> 加载并编译 Stylus 文件</li>
+</ul>
+<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/vuejs/vue-loader"><code>vue-loader</code></a> 加载并编译 <a target="_blank" rel="noopener" href="https://vuejs.org/v2/guide/components.html">Vue 组件</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/TheLarkInn/angular2-template-loader"><code>angular2-template-loader</code></a> 加载并编译 <a target="_blank" rel="noopener" href="https://angular.io/">Angular</a> 组件</li>
+</ul>
+<h3 id="Awesome"><a href="#Awesome" class="headerlink" title="Awesome"></a>Awesome</h3><p>有关更多第三方 loader，请参阅 <a target="_blank" rel="noopener" href="https://webpack.docschina.org/awesome-webpack/#loaders">awesome-webpack</a> 中的列表。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">远方</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://showydream.com/p/e6ad105.html">https://showydream.com/p/e6ad105.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://showydream.com" target="_blank">远方的Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Webpack/">Webpack</a></div><div class="post_share"><div class="social-share" data-image="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/p/ceada707.html"><img class="prev-cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Webpack中的Plugin总结</div></div></a></div><div class="next-post pull-right"><a href="/p/90141316.html"><img class="next-cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/rgz1H3-bryony-elena-ByraPj141bo-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Nuxt优化笔记</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/p/f39d325f.html" title="Weback使用小技巧"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-08</div><div class="title">Weback使用小技巧</div></div></a></div><div><a href="/p/ceada707.html" title="Webpack中的Plugin总结"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-04</div><div class="title">Webpack中的Plugin总结</div></div></a></div><div><a href="/p/53ff0523.html" title="Webpack简介"><img class="cover" src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/m2XSRQ-2019-07-04-01.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-03</div><div class="title">Webpack简介</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/HaBjml-IMG_2383.JPG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">远方</div><div class="author-info__description">好记性不如烂笔头</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/zhxqc"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Loader%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">Loader介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BD%93webpack%E7%A2%B0%E5%88%B0%E8%AF%86%E5%88%AB%E4%B8%8D%E4%BA%86%E7%9A%84%E6%96%87%E4%BB%B6%E6%97%B6%EF%BC%8C%E5%B0%B1%E4%BC%9A%E4%BB%8E%E9%85%8D%E7%BD%AE%E4%B8%AD%E6%89%BE%E8%AF%A5%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E6%9E%90%E8%A7%84%E5%88%99%EF%BC%8C%E6%9D%A5%E7%9C%8B%E4%B8%AA%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">当webpack碰到识别不了的文件时，就会从配置中找该文件的解析规则，来看个示例：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#loader-%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">loader 特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84Loader"><span class="toc-number">3.</span> <span class="toc-text">常见的Loader</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6"><span class="toc-number">3.1.</span> <span class="toc-text">文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON"><span class="toc-number">3.2.</span> <span class="toc-text">JSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E8%BD%AC%E6%8D%A2"><span class="toc-number">3.3.</span> <span class="toc-text">语法转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF"><span class="toc-number">3.4.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F"><span class="toc-number">3.5.</span> <span class="toc-text">样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6"><span class="toc-number">3.6.</span> <span class="toc-text">框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Awesome"><span class="toc-number">3.7.</span> <span class="toc-text">Awesome</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/p/4c68c92e.html" title="一篇文章轻松掌握Flexbox布局，建议收藏"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一篇文章轻松掌握Flexbox布局，建议收藏"/></a><div class="content"><a class="title" href="/p/4c68c92e.html" title="一篇文章轻松掌握Flexbox布局，建议收藏">一篇文章轻松掌握Flexbox布局，建议收藏</a><time datetime="2023-03-24T14:42:46.000Z" title="发表于 2023-03-24 14:42:46">2023-03-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/d3866813.html" title="让您的网页更有吸引力：学习如何使用CSS动画"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让您的网页更有吸引力：学习如何使用CSS动画"/></a><div class="content"><a class="title" href="/p/d3866813.html" title="让您的网页更有吸引力：学习如何使用CSS动画">让您的网页更有吸引力：学习如何使用CSS动画</a><time datetime="2023-03-23T14:41:17.000Z" title="发表于 2023-03-23 14:41:17">2023-03-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/8172d94b.html" title="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/yLnAqE-jackson-sophat-_t-l5FFH8VA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！"/></a><div class="content"><a class="title" href="/p/8172d94b.html" title="CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！">CSS进阶：教你如何使用repeating-linear-gradient函数设计炫酷背景！</a><time datetime="2023-03-22T14:39:21.000Z" title="发表于 2023-03-22 14:39:21">2023-03-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/fedfdf36.html" title="中文大约的确已经死了"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="中文大约的确已经死了"/></a><div class="content"><a class="title" href="/p/fedfdf36.html" title="中文大约的确已经死了">中文大约的确已经死了</a><time datetime="2022-07-08T13:12:09.000Z" title="发表于 2022-07-08 13:12:09">2022-07-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/p/c6cade5d.html" title="寻找最近的回文数"><img src= "https://img.showydream.com/img/cUEDC1-Dual%20Ball-1.3s-200px.gif" data-lazy-src="https://img.showydream.com/img/oe4Yg6-leetcode.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="寻找最近的回文数"/></a><div class="content"><a class="title" href="/p/c6cade5d.html" title="寻找最近的回文数">寻找最近的回文数</a><time datetime="2022-03-02T14:35:49.000Z" title="发表于 2022-03-02 14:35:49">2022-03-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By 远方</div><div class="footer_custom_text"><a href="https://beian.miit.gov.cn/" target='_blank'><span>京ICP备2021007056号-2</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>
